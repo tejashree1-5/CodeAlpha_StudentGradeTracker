@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student {
+    String name;
+    ArrayList<Integer> marks;
+
+    Student(String name, ArrayList<Integer> marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    double getAverage() {
+        int sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        return marks.size() == 0 ? 0 : (double) sum / marks.size();
+    }
+
+    int getHighest() {
+        int max = Integer.MIN_VALUE;
+        for (int mark : marks) {
+            if (mark > max) max = mark;
+        }
+        return max;
+    }
+
+    int getLowest() {
+        int min = Integer.MAX_VALUE;
+        for (int mark : marks) {
+            if (mark < min) min = mark;
+        }
+        return min;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Marks: " + marks);
+        System.out.printf("Average: %.2f\n", getAverage());
+        System.out.println("Highest: " + getHighest());
+        System.out.println("Lowest: " + getLowest());
+        System.out.println("---------------------------");
+    }
+}
+
+public class StudentGradeTracker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Student> students = new ArrayList<>();
+
+        System.out.print("Enter number of students: ");
+        int studentCount = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        for (int i = 0; i < studentCount; i++) {
+            System.out.print("Enter name of student #" + (i + 1) + ": ");
+            String name = scanner.nextLine();
+
+            ArrayList<Integer> marks = new ArrayList<>();
+            System.out.print("Enter number of subjects for " + name + ": ");
+            int subjectCount = scanner.nextInt();
+
+            for (int j = 0; j < subjectCount; j++) {
+                System.out.print("Enter mark for subject #" + (j + 1) + ": ");
+                marks.add(scanner.nextInt());
+            }
+            scanner.nextLine(); // consume newline
+
+            students.add(new Student(name, marks));
+        }
+
+        System.out.println("\n====== STUDENT GRADE REPORT ======\n");
+        for (Student student : students) {
+            student.display();
+        }
+    }
+}

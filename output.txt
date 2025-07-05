@@ -1,0 +1,24 @@
+Enter number of students: 2
+Enter name of student #1: tej
+Enter number of subjects for tej: 2
+Enter mark for subject #1: 97
+Enter mark for subject #2: 89
+Enter name of student #2: shree
+Enter number of subjects for shree: 2
+Enter mark for subject #1: 98
+Enter mark for subject #2: 87
+
+====== STUDENT GRADE REPORT ======
+
+Name: tej
+Marks: [97, 89]
+Average: 93.00
+Highest: 97
+Lowest: 89
+---------------------------
+Name: shree
+Marks: [98, 87]
+Average: 92.50
+Highest: 98
+Lowest: 87
+---------------------------
